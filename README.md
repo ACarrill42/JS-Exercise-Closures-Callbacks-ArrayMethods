@@ -42,6 +42,9 @@ Find the file `index.js` and complete the tasks until your tests are passing.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+Closure is the evironment that a function is in, where the code outside the function, completes the function.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +66,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+Const dansRoll/zoesRoll, since it is calling personalDice.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+${name} will stay the same, but ${newRoll} will change.
+
 c. What is the lexical scope of `newRoll`? 
+
+Just within the function personalDice.
 
 ### Task 3 - Stretch Goals
 

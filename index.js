@@ -28,9 +28,15 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ * counter1 uses a local closure, and counter2 uses a global closure.
+ * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
+ * counter1 uses closure, since it has a function inside a function. counter2 uses a global closure.
+ * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ * 
+ * depends on memory usage, and if you want a local or global closure.
  *
 */
 
@@ -56,11 +62,11 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
-}
+let num = Math.round(Math.random()*2);
+function inning(num) { 
+  console.log(`The home team has ${num} points!`)
+};
+inning(num);
 
 /* Task 3: finalScore()
 
