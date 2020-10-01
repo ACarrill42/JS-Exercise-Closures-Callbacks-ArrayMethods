@@ -88,7 +88,7 @@ function finalScore(score,innings) {
     home += inning();
     away += inning();
   }
-  return {"Home": home, "Away": away}
+  return {"home": home, "away": away}
 }
 console.log(finalScore(inning, 9));
 
@@ -114,8 +114,23 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreBoard(innings,final,num) {
+  let home = 0;
+  let away = 0;
+  
+  for (i = 1; i <= num; i++) {
+    away += final(innings,i).away;
+    home += final(innings,i).home;
+    
+    if (i === 1) {console.log(`${i}st inning ${away}-${home}`)}
+    else if (i === 2) {console.log(`${i}nd inning ${away}-${home}`)}
+    else if (i === 3) {console.log(`${i}rd inning ${away}-${home}`)} 
+    else {
+      console.log(`${i}th inning ${away}-${home}`)
+    }
+  }
+    return `final score ${away} - ${home}`
 }
+console.log(scoreBoard(inning,finalScore,9));
 
 
