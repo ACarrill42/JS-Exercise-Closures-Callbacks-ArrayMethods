@@ -62,11 +62,10 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-let num = Math.round(Math.random()*2);
 function inning(num) { 
-  console.log(`The home team has ${num} points!`)
-};
-inning(num);
+  return Math.round(Math.random()*2);
+  };
+  console.log(inning())
 
 /* Task 3: finalScore()
 
