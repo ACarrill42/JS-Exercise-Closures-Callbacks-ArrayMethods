@@ -28,9 +28,15 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ * counter1 uses a local closure, and counter2 uses a global closure.
+ * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
+ * counter1 uses closure, since it has a function inside a function. counter2 uses a global closure.
+ * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ * 
+ * depends on memory usage, and if you want a local or global closure.
  *
 */
 
@@ -56,11 +62,10 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
-}
+function inning(num) { 
+  return Math.round(Math.random()*2);
+  };
+  console.log(inning())
 
 /* Task 3: finalScore()
 
@@ -76,11 +81,16 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(score,innings) {
+  let home = 0;
+  let away = 0;
+  for (i = 0; i < innings; i++) {
+    home += inning();
+    away += inning();
+  }
+  return {"home": home, "away": away}
 }
+console.log(finalScore(inning, 9));
 
 /* Task 4: 
 
@@ -104,8 +114,23 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreBoard(innings,final,num) {
+  let home = 0;
+  let away = 0;
+  
+  for (i = 1; i <= num; i++) {
+    away += final(innings,i).away;
+    home += final(innings,i).home;
+    
+    if (i === 1) {console.log(`${i}st inning ${away}-${home}`)}
+    else if (i === 2) {console.log(`${i}nd inning ${away}-${home}`)}
+    else if (i === 3) {console.log(`${i}rd inning ${away}-${home}`)} 
+    else {
+      console.log(`${i}th inning ${away}-${home}`)
+    }
+  }
+    return `final score ${away} - ${home}`
 }
+console.log(scoreBoard(inning,finalScore,9));
 
 
